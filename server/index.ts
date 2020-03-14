@@ -8,6 +8,10 @@ import { Logger } from '@overnightjs/logger';
 require('dotenv').config();
 
 class MainServer extends Server {
+  reactPath = path.join(__dirname, './index.html');
+  staticPath = path.join(__dirname, './static');
+  isProduction = process.env.NODE_ENV === 'production';
+
   private readonly SERVER_START_MSG = 'Demo server started on port: ';
 
   constructor() {
@@ -15,8 +19,11 @@ class MainServer extends Server {
     const { UserController } = controllers;
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-
     super.addControllers(new UserController());
+    if (this.isProduction) {
+      this.app.use('/static', express.static(this.staticPath));
+      this.app.get('*', (req, res) => res.sendFile(this.reactPath));
+    }
   }
 
   private setupControllers(): void {
