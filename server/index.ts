@@ -12,14 +12,15 @@ class MainServer extends Server {
   staticPath = path.join(__dirname, './static');
   isProduction = process.env.NODE_ENV === 'production';
 
-  private readonly SERVER_START_MSG = 'Demo server started on port: ';
+  private readonly SERVER_START_MSG = 'Main server started on port: ';
 
   constructor() {
     super(true);
     const { UserController } = controllers;
+    const userController = new UserController();
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
-    super.addControllers(new UserController());
+    super.addControllers([userController]);
     if (this.isProduction) {
       this.app.use('/static', express.static(this.staticPath));
       this.app.get('*', (req, res) => res.sendFile(this.reactPath));
