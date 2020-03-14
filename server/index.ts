@@ -1,18 +1,22 @@
 import * as path from 'path';
 import * as express from 'express';
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
 import * as bodyParser from 'body-parser';
 import * as controllers from './controllers';
-import {Server} from '@overnightjs/core';
-import {Logger} from '@overnightjs/logger';
+import { Server } from '@overnightjs/core';
+import { Logger } from '@overnightjs/logger';
+require('dotenv').config();
 
 class MainServer extends Server {
   private readonly SERVER_START_MSG = 'Demo server started on port: ';
 
   constructor() {
     super(true);
-    const {UserController} = controllers;
+    const { UserController } = controllers;
     this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({extended: true}));
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+
     super.addControllers(new UserController());
   }
 
@@ -30,6 +34,7 @@ class MainServer extends Server {
   public start(port: number): void {
     this.app.listen(port, () => {
       Logger.Imp(this.SERVER_START_MSG + port);
+      Logger.Info(`DB HOST: ${process.env.DB_HOST}`);
     });
   }
 }
