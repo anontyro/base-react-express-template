@@ -25,7 +25,10 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "reflect-metadata": "^0.1.13",
+    "tailwindcss": "^1.2.0",
     "typeorm": "^0.2.24",
     "typescript": "~3.7.2"
   },
