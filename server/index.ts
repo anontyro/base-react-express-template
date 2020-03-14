@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as express from 'express';
 import 'reflect-metadata';
-import { createConnection } from 'typeorm';
 import * as bodyParser from 'body-parser';
 import * as controllers from './controllers';
 import { Server } from '@overnightjs/core';
