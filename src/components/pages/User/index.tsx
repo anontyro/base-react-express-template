@@ -18,7 +18,14 @@ const User: React.FC<Props> = ({ username }) => {
     );
   }, [dispatch]);
 
-  return <h1 className="">{`User Page ${username}`}</h1>;
+  return (
+    <React.Fragment>
+      <h1 className="">{`User Page ${username}`}</h1>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+      </button>
+    </React.Fragment>
+  );
 };
 
 const mapStateToProps = ({ user }: RootState) => ({

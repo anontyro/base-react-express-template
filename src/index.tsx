@@ -10,6 +10,7 @@ import App from './App';
 import User from './components/pages/User';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './redux';
+import './assets/main.css';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 

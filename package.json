@@ -30,17 +30,18 @@
     "redux-thunk": "^2.3.0",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.0.1",
-    "tailwindcss": "^1.2.0",
     "typeorm": "^0.2.24",
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start:client": "react-scripts start",
+    "start:client": "npm run watch:css && react-scripts start",
     "start:server": "nodemon",
     "start": "run-p start:client start:server",
-    "build": "react-scripts build",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
   "proxy": "https://localhost:3001",
   "eslintConfig": {
@@ -60,7 +61,10 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.3",
+    "autoprefixer": "^9.7.4",
+    "postcss-cli": "^7.1.0",
     "prettier": "1.19.1",
+    "tailwindcss": "^1.2.0",
     "ts-node": "^8.6.2",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0"
