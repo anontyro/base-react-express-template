@@ -24,6 +24,21 @@ The backend is using ExpressJS with OvernightJS to better organise the controlle
 ### TypeORM / Database
 THe database connection is controlled with TypeORM that will is currently setup with mySQL but can easily be switched to any other database supported.
 
+## Docker
+
+The production build has been Dockerized and is able to be built but will require database values being passed in. This is done with the build arguments as can be seen below.
+
+```
+docker build --file Dockerfile --build-arg DB_HOST=${HOST_ADDRESS} --build-arg DB_USERNAME=${DB_USER} --build-arg DB_PASSWORD=${DB_PASSWORD} --build-arg DB_NAME=${DATABASE} --tag build-tag .
+```
+
+To then run the image the following command can be used:
+```
+docker container run --publish 3030:3001 --detach build-1.0
+```
+This will run the image from the tag name in detach mode. It will run exposing `PORT 3030`
+
+
 ## Setup
 
 in the .env add in the following parameters to connect to the database:
