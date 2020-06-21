@@ -18,6 +18,9 @@ Bootstrapped with the create react app in Typescript the frontend is setup with:
 ### TailwindCSS
 Tailwind has been fully intergrated into the frontend to allow for a much easier way to deal with the styles, this provides more flexabiity that can be used well alongside styled-components
 
+#### Keeping Tailwind Updated
+Tailwind is quickly updated but it is actually pretty simple to update to the latest version. Just update the package in the `package.json` then remove the current `tailwind.js` in the root and re-initialize it `npx tailwind init tailwind.js --full` this will now include all the latest classes.
+
 ### Express
 The backend is using ExpressJS with OvernightJS to better organise the controllers using decorators without having to use a much bigger framework like Nest.
 
