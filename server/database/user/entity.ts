@@ -4,9 +4,10 @@ export interface IUser {
   id: number;
   firstName: string;
   lastName: string;
-  isActive: boolean;
   email: string;
   password: string;
+  isActive: boolean;
+  accessLevel: number;
 }
 @Entity()
 export default class User extends BaseEntity {
@@ -27,4 +28,7 @@ export default class User extends BaseEntity {
 
   @Column()
   password: string;
+
+  @Column()
+  accessLevel: number;
 }
