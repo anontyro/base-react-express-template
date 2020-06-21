@@ -1,3 +1,15 @@
+[![Dependency Status][david-image]][david-url]
+[![DevDependency Status][david-dev-image]][david-dev-url]
+[![Github Tag][github-tag-image]][github-tag-url]
+
+[david-url]: https://david-dm.org/anontyro/base-react-express-template
+[david-image]: https://david-dm.org/anontyro/base-react-express-template/status.svg
+[david-dev-image]: https://img.shields.io/david/dev/anontyro/base-react-express-template.svg?label=devDependencies
+[david-dev-url]: https://david-dm.org/anontyro/base-react-express-template?type=dev
+
+[github-tag-url]: https://github.com/anontyro/base-react-express-template/releases/latest
+[github-tag-image]:https://img.shields.io/github/v/tag/anontyro/base-react-express-template.svg?label=version&sort=semver
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Motivation
