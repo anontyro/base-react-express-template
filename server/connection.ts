@@ -17,7 +17,7 @@ const defaultConnection = {
   database: DB_NAME,
   synchronize: false,
   logging: true,
-  entities: [User],
+  entities: [],
 };
 
 const connection = createConnection({
